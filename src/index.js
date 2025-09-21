@@ -46,12 +46,6 @@ if (messageContainer && messageForm) {
     username.innerText = `${data}`;
   });
 
-  // socket.on("question_created", (data) => {
-  //   addMessageToUI(false, data);
-  //   // const question = document.getElementById("message-left");
-  //   // question.innerHTML = `${data}`;
-  // });
-
 
   socket.on("timer_update", (data) => {
     if (timer) {
@@ -176,9 +170,9 @@ if (setQuestionBtn) {
     const myUserId = window.currentUserId;
 
     if (gm === myUserId) {
-      setQuestionBtn.style.display = "block"; // I’m the GM
+      setQuestionBtn.style.display = "block"; 
     } else {
-      setQuestionBtn.style.display = "none"; // Not me
+      setQuestionBtn.style.display = "none"; 
     }
 
   });
