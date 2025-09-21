@@ -33,7 +33,7 @@ if (userForm) {
     try {
       const res = await axios({
         method: "POST",
-        url: "http://127.0.0.1:8100/api/v1/user",
+        url: "/api/v1/user",
         data,
       });
 
