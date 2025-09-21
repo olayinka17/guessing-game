@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ebebeb;
+  min-height: 800px;
+}
+
+.title {
+  margin: 20px 0;
+  left: 50px;
+}
+
+.setQuestionBtn {
+  color: black;
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  padding: 0 20px;
+  outline: none;
+  background-color: #ebebeb;
+  cursor: pointer;
+  display: none;
+}
+
+.main {
+  border: 8px solid #dddddd;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.name {
+  display: flex;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 8px 16px;
+  color: #7e7e7e;
+  background-color: #ebebeb;
+}
+.name > span {
+  color: brown;
+}
+.name-input {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c02027a;
+  flex-grow: 1;
+  border: none;
+  margin: 0px 12px;
+  outline: none;
+  background-color: #ebebeb;
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  width: 400px;
+  height: 400px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.message-left,
+.message-right {
+  list-style: none;
+  padding: 8px 12px;
+  margin: 12px;
+  max-width: 250px;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.message-left {
+  border-radius: 20px 20px 20px 0;
+  align-self: flex-start;
+  background-color: #fff;
+  box-shadow: -2px 2px 4px #dcdcdc;
+}
+.message-right {
+  border-radius: 20px 20px 0px 20px;
+  align-self: flex-end;
+  background-color: #2d2d2d;
+  box-shadow: 2px 2px 4px #dcdcdc;
+  color: #f6f6f6;
+}
+.message-left > p > span,
+.message-right > p > span {
+  display: block;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.feedback,
+.feedback-top {
+  font-style: italic;
+  font-size: 14px;
+  padding: 0 16px 16px 16px;
+  color: #2d2d2d;
+  text-align: center;
+}
+
+.message-form {
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+}
+.message-input {
+  flex-grow: 1;
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 0 12px;
+  background-color: #fff;
+}
+.send-button {
+  height: 48px;
+  font-size: 16px;
+  border: none;
+  padding: 0 20px;
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.v-divider {
+  height: 48px;
+  width: 2px;
+  background-color: #f6f6f6;
+}
+.clients-total {
+  margin: 20px 0;
+  color: #7e7e7e;
+}
+
+.popover {
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ebebeb;
+  border: 1px solid #ccc;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 300px;
+  border-radius: 8px;
+}
+#questionInput,
+#answerInput {
+  border: none;
+  font-size: 15px;
+  flex-grow: 1;
+  outline: none;
+  margin: 5px 12px;
+  background-color: #ebebeb;
+}
+
+#submitQA,
+#closePopover {
+  height: 25px;
+  font-size: 12px;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  border-color: white;
+  padding: 0 20px;
+  outline: none;
+  background-color: black;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.leave {
+  font-size: 15px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  border-color: white;
+  padding: 8px 12px;
+  outline: none;
+  background-color: black;
+  cursor: pointer;
+}
+.alert {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-family: lato;
+  font-weight: 600;
+  font-size: 1rem;
+  color: white;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+  max-width: 90vw;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+}
+
+/* Success alert (green) */
+.alert--success {
+  background-color: #4bb543;
+  border: 1px solid #3e9438;
+}
+
+/* Error alert (red) */
+.alert--error {
+  background-color: #ff4c4c;
+  border: 1px solid #cc3a3a;
+}

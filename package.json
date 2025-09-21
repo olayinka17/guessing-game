@@ -1,0 +1,24 @@
+{
+  "name": "guessing-game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:js": "parcel watch ./src/alert.js ./src/user.js ./src/index.js --out-dir ./public",
+    "build:js": "parcel build ./src/user.js ./src/index.js --out-dir ./public --no-content-hash"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0",
+    "redis": "^5.8.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}

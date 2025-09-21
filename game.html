@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Guessing game</title>
+  </head>
+  <body>
+    <h1 class="title" id="title">Molat Game</h1>
+    <div id="gmControls">
+      <button id="setQuestionBtn" class="setQuestionBtn">
+        Click to set Question
+      </button>
+    </div>
+    <div class="main">
+      <div class="name">
+        <span><i class="far fa-user" aria-hidden="true"></i></span>
+        <p class="name-input" id="name-input"></p>
+        <!-- <input
+          type="text"
+          id="name-input"
+          class="name-input"
+          value="anonymous"
+          maxlength="20"
+        /> -->
+        <button class="leave" id="leave">leave game</button>
+      </div>
+      <ul class="message-container" id="message-container">
+        <li class="message-feedback-top">
+          <p class="feedback-top" id="feedback-top">olayinka joined</p>
+        </li>
+        <li class="message-left">
+          <p class="message" id="message-left">
+            lorem impsum
+            <span>olayinka • 31 august 07:36</span>
+          </p>
+        </li>
+        <li class="message-right">
+          <p class="message" id="message-right">
+            lorem impsum
+            <span>olayinka • 31 august 07:36</span>
+          </p>
+        </li>
+        <li class="message-feedback">
+          <p class="feedback" id="feedback">olayinka is typing</p>
+        </li>
+      </ul>
+
+      <form class="message-form" id="message-form">
+        <input
+          type="text"
+          name="message"
+          id="message-input"
+          class="message-input"
+        />
+        <div class="v-divider"></div>
+        <button type="submit" class="send-button">
+          send <span><i class="fas fa-paper-plane"></i></span>
+        </button>
+      </form>
+    </div>
+    <h3 class="clients-total" id="clients-total">Total: 3</h3>
+    <div id="popover" class="popover hidden">
+      <label>Question:</label>
+      <input
+        type="text"
+        id="questionInput"
+        placeholder="Enter your question here"
+      />
+
+      <label>Answer:</label>
+      <input
+        type="text"
+        id="answerInput"
+        placeholder="Enter your answer here"
+      />
+
+      <div>
+        <button id="submitQA">Submit</button>
+        <button id="closePopover">Cancel</button>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"
+      integrity="sha512-QoJS4DOhdmG8kbbHkxmB/rtPdN62cGWXAdAFWWJPvUFF1/zxcPSdAnn4HhYZSIlVoLVEJ0LesfNlusgm2bPfnA=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./bundle.js"></script>
+  </body>
+</html>
