@@ -56,6 +56,7 @@ if (userForm) {
       }
     } catch (err) {
       console.error("Error joining/hosting:", err);
+      showAlert("error", err.response.data.message);
     }
   });
 }

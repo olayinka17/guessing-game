@@ -47,7 +47,7 @@ class GameSession {
       console.log(sessionId);
       this.startTimer(String(sessionId));
     } else {
-      this.socket.emit("guess_error", result.message);
+      this.socket.emit("question_error", result.message);
     }
   }
 

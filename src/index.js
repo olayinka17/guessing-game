@@ -78,6 +78,10 @@ if (messageContainer && messageForm) {
     addMessageToUI(false, data);
   });
 
+  socket.on("question_error", (data) => {
+    showAlert("error", data)
+    setQuestionBtn.style.display = "block"; 
+  })
   socket.on("attempted", (data) => {
     showAlert("success", `you've just ${data} retry left`);
   });
@@ -166,7 +170,9 @@ if (setQuestionBtn) {
     document.getElementById("popover").classList.remove("hidden");
   });
 
+  
   socket.on("assignGameMaster", (gm) => {
+    
     const myUserId = window.currentUserId;
 
     if (gm === myUserId) {

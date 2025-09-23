@@ -12,7 +12,7 @@ const handleGame = CatchAsync(async (req, res, next) => {
     const hosted = await Hosted.findOne({ code });
 
     if (!hosted) {
-      return next(new CustomError("invald game code", 404));
+      return next(new CustomError("Invald game code", 404));
     }
 
     const session = await Session.findOne({ game_code: code });

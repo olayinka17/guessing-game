@@ -1,6 +1,7 @@
 const app = require("./app");
 const connectToDB = require("./db");
-
+const globalErrorHandler = require('./utils/Error')
+const CustomError = require("./utils/CustomError")
 require("dotenv").config();
 
 const GameSession = require("./gameSesson");
@@ -8,6 +9,13 @@ const GameSession = require("./gameSesson");
 const Port = process.env.PORT;
 
 connectToDB();
+
+app.use((req, res, next) => {
+  next(new CustomError(`can't find ${req.originalUrl} on this server`, 404));
+});
+
+// global error handler
+app.use(globalErrorHandler);
 const server = app.listen(Port, () => {
   console.log(`Server start running http://127.0.0.1:${Port}`);
 });

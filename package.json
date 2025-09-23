@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start:prod": "cross-env NODE_ENV=production nodemon server.js",
     "watch:js": "parcel watch ./src/alert.js ./src/user.js ./src/index.js --out-dir ./public",
     "build:js": "parcel build ./src/user.js ./src/index.js --out-dir ./public --no-content-hash"
   },
@@ -12,9 +13,11 @@
   "description": "",
   "dependencies": {
     "axios": "^1.11.0",
+    "cross-env": "^10.0.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "mongoose": "^8.18.0",
+    "nodemon": "^3.1.10",
     "redis": "^5.8.2",
     "socket.io": "^4.8.1"
   },

@@ -1,11 +1,9 @@
 const Session = require("./model/gameSession");
 const Guess = require("./model/guess");
 const User = require("./model/user");
-const Hosted = require('./model/hostedGame')
-
+const Hosted = require("./model/hostedGame");
 
 class GameSessionService {
-
   async createSession(data, playerId) {
     const session = await Session.create({
       game_master_id: playerId,
@@ -43,7 +41,6 @@ class GameSessionService {
     session.answer = data.answer;
     session.status = "active";
     await session.save();
-
 
     return {
       status: "success",
@@ -118,8 +115,6 @@ class GameSessionService {
     guess.retry -= 1;
     guess.is_correct = false;
     await guess.save();
-
-
 
     return {
       status: "fail",
@@ -234,7 +229,7 @@ class GameSessionService {
       await Promise.all([
         Guess.deleteMany({ session_code: sessionId }),
         User.deleteOne({ _id: playerId }),
-        Hosted.deleteOne({code: sessionId})
+        Hosted.deleteOne({ code: sessionId }),
       ]);
       return {
         status: "success",
