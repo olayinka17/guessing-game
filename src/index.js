@@ -97,6 +97,7 @@ if (messageContainer && messageForm) {
 
   socket.on("player_left", (data) => {
     feedback(false, data);
+    
   });
 
 

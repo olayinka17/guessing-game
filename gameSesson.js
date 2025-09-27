@@ -164,10 +164,14 @@ class GameSession {
   async exit(sessionId, playerId, username) {
     const result = await service.exit(sessionId, playerId);
     console.log(result);
-    if (result.status === "fail") {
+    if (result.status === "success" && result.isGameMaster === true) {
+      this.endRound(sessionId);
+      this.socket.to(sessionId).emit("player_left", username);
+    } else if (result.status === "fail") {
       this.socket.emit("guess_error", result.message);
     } else {
       if (!result.data.session_deleted) {
+        this.emitScores(sessionId)
         this.socket.to(sessionId).emit("player_left", username);
       }
     }

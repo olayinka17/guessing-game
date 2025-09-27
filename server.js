@@ -1,7 +1,7 @@
 const app = require("./app");
 const connectToDB = require("./db");
-const globalErrorHandler = require('./utils/Error')
-const CustomError = require("./utils/CustomError")
+const globalErrorHandler = require("./utils/Error");
+const CustomError = require("./utils/CustomError");
 require("dotenv").config();
 
 const GameSession = require("./gameSesson");
@@ -55,7 +55,7 @@ io.on("connection", (socket) => {
     gameSession.guessAnswer({ ...data, username }, sessionId, playerId);
   });
 
-  socket.on("leave-game", (done) => {
+  const handleExit = (socket) => {
     const sessionId = socket.sessionId;
     const playerId = socket.playerId;
     const username = socket.username;
@@ -63,15 +63,15 @@ io.on("connection", (socket) => {
     if (!sessionId || !playerId) return;
     gameSession.exit(sessionId, playerId, username);
 
+    socket.sessionId = null;
+    socket.playerId = null;
+  };
+  socket.on("leave-game", (done) => {
+    handleExit(socket);
     if (done) done({ status: "success", message: "Left game successfully" });
   });
 
   socket.on("disconnect", () => {
-    const sessionId = socket.sessionId;
-    const playerId = socket.playerId;
-    const username = socket.username;
-
-    if (!sessionId || !playerId) return;
-    gameSession.exit(sessionId, playerId, username);
+    handleExit(socket);
   });
 });

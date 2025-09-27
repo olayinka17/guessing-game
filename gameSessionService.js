@@ -151,9 +151,9 @@ class GameSessionService {
     if (!session) {
       return { status: "fail", message: "no session with that code " };
     }
-    if (session.status !== "active") {
-      return { status: "fail", message: "Session not active." };
-    }
+    // if (session.status === "active" ) {
+    //   return { status: "fail", message: "Session not active." };
+    // }
     let nextGameMaster;
 
     if (session.winner_id) {
@@ -243,6 +243,12 @@ class GameSessionService {
       Guess.deleteOne({ player_id: playerId }),
       User.deleteOne({ _id: playerId }),
     ]);
+    if (playerId === updatedSession.game_master_id.toString()) {
+      return {
+        status: "success",
+        isGameMaster: true,
+      };
+    }
     return {
       status: "success",
       data: {
