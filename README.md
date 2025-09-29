@@ -1,0 +1,6 @@
+This respository is a simple guessng game where each user can have a game session with their friends by connecting with a 6-digits code. The host will create a game and a 6-digits code will be generated for the game session,
+the game host can then share the code with other interested user to join his/her game session. The game host is automatically the game master for the first round, but if the game host decide to
+leave the before the first round of the game start, a user will be randomly chosen to be the next game master. The game require that atleast 2 users must be in the game before a round could be started. Each round have 60s to end 
+a user in the game session that guess the answer correctly will be assign the game master of the next round, and if any of the user did not get the answer correctly before the 60s that was given elapsed a new game master will be assigned randomly. i used MongoDB 
+to store users, each hosted game, each guesses for the users, and each session. After each user leave the game their data will be automatically be deleted from the database and if the last user in a session leaves the game session will be deleted. 
+each guesses will be look up in MongoDb for the early stages but as the web app grows more user, redis will be implemented for fast look ups and background worker will update the db.
